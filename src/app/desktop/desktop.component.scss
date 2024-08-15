@@ -1,0 +1,21 @@
+/* desktop.component.scss */
+.desktop {
+    background-image: url('/assets/imagenescritorio.jpg');
+    background-size: cover; /* Ajusta la imagen para cubrir todo el área del escritorio */
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  
+    .icon-container {
+      position: absolute;
+      top: 50px; /* Ajusta la posición vertical de la columna de iconos */
+      left: 50px; /* Ajusta la posición horizontal de la columna de iconos */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
