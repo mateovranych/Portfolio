@@ -1,7 +1,16 @@
-
 <div class="desktop">
-    <app-icons *ngFor="let icon of icons" [icon]="icon"></app-icons>
-    <app-task-bar></app-task-bar>
+  <div class="icon-container">
+    <app-icons *ngFor="let icon of icons" [icon]="icon" (click)="openApp(icon.name)"></app-icons>
   </div>
-  
-  
+
+  <ng-container *ngFor="let app of taskbarservice.apps">
+    <app-windows *ngIf="app.isOpen" [appName]="app.name">
+      <div *ngIf="app.name === 'Proyectos'">        
+      </div>
+      <div *ngIf="app.name === 'Ayuda'">        
+      </div>      
+    </app-windows>
+  </ng-container>
+
+  <app-task-bar></app-task-bar>
+</div>

@@ -1,1 +1,10 @@
-<p>windows works!</p>
+<div class="window" *ngIf="isOpen">
+    <div class="window-header">
+      <span>{{ appName }}</span>
+      <button (click)="closeApp()">X</button>
+    </div>
+    <div class="window-content">      
+      <ng-content></ng-content>
+    </div>
+  </div>
+

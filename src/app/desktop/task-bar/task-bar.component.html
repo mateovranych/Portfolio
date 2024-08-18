@@ -1,10 +1,7 @@
-<!-- taskbar.component.html -->
-<div class="taskbar">
-    <!-- Botón de Inicio -->
+<div class="taskbar">    
     <div class="start-button" (click)="toggleMenu()">
       <img src="/src/assets/log.ico" alt="Start">
-      <span>Start</span>
-      <!-- Menú de Inicio -->
+      <span>Start</span>      
       <div class="start-menu" [class.show]="isMenuOpen">
         <div class="menu-item">Programas</div>
         <div class="menu-item">Documentos</div>
@@ -12,11 +9,16 @@
         <div class="menu-item">Buscar</div>
         <div class="menu-item">Cerrar sesión</div>
       </div>
-    </div>
-  
+    </div>      
 
-  
-    <!-- Reloj -->
+    <div class="task-bar">
+  <ng-container *ngFor="let app of Taskbarservice.apps">
+    <div *ngIf="app.isOpen">
+      {{ app.name }}
+    </div>
+  </ng-container>
+    </div>
+
     <div class="clock">
       {{ currentTime | date:'shortTime' }}
     </div>

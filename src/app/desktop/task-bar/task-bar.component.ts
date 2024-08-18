@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { TaskbarService } from '../../services/taskbar.service';
+
 
 @Component({
   selector: 'app-task-bar',
@@ -9,6 +11,9 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrl: './task-bar.component.scss'
 })
 export class TaskBarComponent implements OnInit {
+  constructor(public readonly Taskbarservice : TaskbarService){
+
+  }
   currentTime: Date = new Date();
   isMenuOpen: boolean = false;
 
@@ -20,6 +25,14 @@ export class TaskBarComponent implements OnInit {
 
   updateTime() {
     this.currentTime = new Date();
+  }
+
+  closeApp(appName: string) {
+    this.Taskbarservice.closeApp(appName);
+  }
+
+  focusApp(appName: string) {
+    this.Taskbarservice.openApp(appName); // Focaliza la ventana si se hace clic en la taskbar
   }
 
   toggleMenu() {
