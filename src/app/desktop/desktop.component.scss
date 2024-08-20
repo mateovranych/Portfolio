@@ -1,23 +1,55 @@
-/* desktop.component.scss */
 .desktop {
-    background-image: url('/assets/imagenescritorio.jpg');
-    background-size: cover; /* Ajusta la imagen para cubrir todo el área del escritorio */
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  background-image: url('/assets/imagenescritorio.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
   
-    .icon-container {
-      position: absolute;
-      top: 50px; /* Ajusta la posición vertical de la columna de iconos */
-      left: 50px; /* Ajusta la posición horizontal de la columna de iconos */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .icon-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los iconos a la izquierda */
   }
   
+  .icon {
+    margin-bottom: 20px; /* Espaciado entre iconos */
+    text-align: center;
+    cursor: pointer;
+    width: 80px; /* Ancho del área del icono para facilitar el clic */
+    height: 100px; /* Altura del área del icono */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    
+    img {
+      width: 48px; /* Tamaño del icono */
+      height: 48px;
+      margin-bottom: 5px;
+    }
+    
+    span {
+      font-size: 12px; /* Tamaño del texto debajo del icono */
+      color: white; /* Color del texto */
+      text-shadow: 1px 1px 2px black; /* Añade un sombreado para que el texto sea más legible */
+    }
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Efecto hover para hacer que el icono se destaque */
+      border-radius: 5px; /* Bordes redondeados */
+    }
+  }
+}
 
-  
+app-windows {
+  position: absolute; /* Añadido para permitir el arrastre */
+  z-index: 100;
+}
+

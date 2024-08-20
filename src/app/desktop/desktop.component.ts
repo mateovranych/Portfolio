@@ -4,6 +4,11 @@ import { TaskBarComponent } from './task-bar/task-bar.component';
 import { IconsComponent } from "./icons/icons.component";
 import { TaskbarService } from '../services/taskbar.service';
 import { WindowsComponent } from "./windows/windows.component";
+import { PapeleraComponent } from "../icons/papelera/papelera.component";
+import { MsnComponent } from "../icons/msn/msn.component";
+import { AyudaComponent } from "../icons/ayuda/ayuda.component";
+import { ProyectsComponent } from "../icons/proyects/proyects.component";
+
 
 
 @Component({
@@ -11,7 +16,13 @@ import { WindowsComponent } from "./windows/windows.component";
   standalone: true,
   imports: [CommonModule,
     TaskBarComponent,
-    IconsComponent, WindowsComponent],
+    IconsComponent, 
+    WindowsComponent, 
+    PapeleraComponent, 
+    MsnComponent, 
+    AyudaComponent, 
+    ProyectsComponent,
+    ],
   templateUrl: './desktop.component.html',
   styleUrl: './desktop.component.scss'
 })
@@ -32,5 +43,58 @@ export class DesktopComponent {
     console.log(`Abriendo aplicación: ${appName}`);
     this.taskbarservice.openApp(appName);
   }
+
+
+ // Variables para arrastrar iconos
+ isDraggingIcon = false;
+ currentIconIndex: number | null = null;
+ offsetX = 0;
+ offsetY = 0;
+
+ // Manejadores de eventos para los iconos
+ onIconMouseDown(event: MouseEvent, index: number) {
+   this.isDraggingIcon = true;
+   this.currentIconIndex = index;
+   this.offsetX = event.clientX - this.icons[index].x;
+   this.offsetY = event.clientY - this.icons[index].y;
+ }
+
+ onIconMouseUp() {
+   this.isDraggingIcon = false;
+   this.currentIconIndex = null;
+ }
+
+ onIconMouseMove(event: MouseEvent) {
+   if (this.isDraggingIcon && this.currentIconIndex !== null) {
+     this.icons[this.currentIconIndex].x = event.clientX - this.offsetX;
+     this.icons[this.currentIconIndex].y = event.clientY - this.offsetY;
+   }
+ }
+
+ // Variables para arrastrar ventanas (en caso de que quieras arrastrarlas)
+ isDraggingWindow = false;
+ currentWindowElement: HTMLElement | null = null;
+ windowOffsetX = 0;
+ windowOffsetY = 0;
+
+ // Manejadores de eventos para las ventanas
+ onWindowMouseDown(event: MouseEvent, element: HTMLElement) {
+   this.isDraggingWindow = true;
+   this.currentWindowElement = element;
+   this.windowOffsetX = event.clientX - element.getBoundingClientRect().left;
+   this.windowOffsetY = event.clientY - element.getBoundingClientRect().top;
+ }
+
+ onWindowMouseUp() {
+   this.isDraggingWindow = false;
+   this.currentWindowElement = null;
+ }
+
+ onWindowMouseMove(event: MouseEvent) {
+   if (this.isDraggingWindow && this.currentWindowElement) {
+     this.currentWindowElement.style.left = `${event.clientX - this.windowOffsetX}px`;
+     this.currentWindowElement.style.top = `${event.clientY - this.windowOffsetY}px`;
+   }
+ }
 
 }
