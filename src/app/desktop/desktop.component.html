@@ -1,5 +1,9 @@
 <div class="desktop">
   <div class="icon-container">
+    <div class="icon" (click)="openApp('Profile')">
+      <img src="assets/agent.ico" alt="Profile">
+      <span>Perfil</span>
+    </div>
     <div class="icon" (click)="openApp('Proyectos')">
       <img src="assets/Folder.ico" alt="Proyectos">
       <span>Proyectos</span>
@@ -14,14 +18,14 @@
     </div>
     <div class="icon" (click)="openApp('Papelera')">
       <img src="assets/Recycle Bin with paper.ico" alt="Papelera">
-      <span>Papelera</span>
+      <span>Papelera de reciclaje</span>
     </div>
-  </div>
-  
+  </div>  
   <ng-container *ngFor="let app of taskbarservice.apps">
     <app-windows *ngIf="app.isOpen" [appName]="app.name">
-
-      
+      <div *ngIf="app.name === 'Profile'">
+        <app-profile></app-profile>
+      </div>      
       <div *ngIf="app.name === 'Proyectos'">
         <app-proyects></app-proyects>
       </div>

@@ -15,9 +15,7 @@ export class WindowsComponent {
   }
   @Input() appName: string = '';
   isOpen: boolean = true;
-
  
-
   closeApp() {
     this.taskbarservice.closeApp(this.appName);
   }

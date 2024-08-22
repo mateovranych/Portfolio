@@ -8,6 +8,7 @@ import { PapeleraComponent } from "../icons/papelera/papelera.component";
 import { MsnComponent } from "../icons/msn/msn.component";
 import { AyudaComponent } from "../icons/ayuda/ayuda.component";
 import { ProyectsComponent } from "../icons/proyects/proyects.component";
+import { ProfileComponent } from "../icons/profile/profile.component";
 
 
 
@@ -16,13 +17,13 @@ import { ProyectsComponent } from "../icons/proyects/proyects.component";
   standalone: true,
   imports: [CommonModule,
     TaskBarComponent,
-    IconsComponent, 
-    WindowsComponent, 
-    PapeleraComponent, 
-    MsnComponent, 
-    AyudaComponent, 
-    ProyectsComponent,
-    ],
+    IconsComponent,
+    WindowsComponent,
+    PapeleraComponent,
+    MsnComponent,
+    AyudaComponent,
+    ProyectsComponent, 
+    ProfileComponent],
   templateUrl: './desktop.component.html',
   styleUrl: './desktop.component.scss'
 })
@@ -32,6 +33,7 @@ export class DesktopComponent {
   }
   
   icons = [
+    { name: 'Profile', img: 'assets/agent.ico', x: 50, y: 50 },
     { name: 'Proyectos', img: 'assets/Folder.ico', x: 50, y: 50 },
     { name: 'Ayuda', img: 'assets/Help 3D.ico', x: 100, y: 50 },
     { name: 'MSN', img: 'assets/MSN.ico', x: 150, y: 50 },
