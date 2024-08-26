@@ -1,0 +1,48 @@
+.window-header {
+    margin: 0;
+    background-color: #c0c0c0;    
+    border-bottom: 2px solid #000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-bar {
+    display: flex;
+    gap: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-item {
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.menu-item:hover {
+    background-color: #808080;
+    color: #fff;
+}
+
+.window-content {
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.project {
+    margin-bottom: 20px;
+}
+
+.project h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.project p {
+    margin: 0;
+}
