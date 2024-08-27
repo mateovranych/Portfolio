@@ -27,17 +27,18 @@ export class TaskBarComponent implements OnInit {
     this.currentTime = new Date();
   }
 
-  closeApp(appName: string) {
+  closeApp(appName: string, appIcon: string) {
     this.Taskbarservice.closeApp(appName);
   }
 
-  focusApp(appName: string) {
-    this.Taskbarservice.openApp(appName); // Focaliza la ventana si se hace clic en la taskbar
+  focusApp(appName: string, appIcon: string) {
+    this.Taskbarservice.openApp(appName, appIcon); // Focaliza la ventana si se hace clic en la taskbar
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+  
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) {
     const target = event.target as HTMLElement;

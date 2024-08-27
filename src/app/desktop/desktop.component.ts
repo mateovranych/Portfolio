@@ -40,10 +40,10 @@ export class DesktopComponent {
     { name: 'Papelera de reciclaje', img: 'assets/Recycle Bin with paper.ico', x: 200, y: 50 }
   ];
 
-  openApp(appName: string) {
+  openApp(appName: string, appIcon: string) {
     console.log('Abriendo aplicación:', appName);
     console.log(`Abriendo aplicación: ${appName}`);
-    this.taskbarservice.openApp(appName);
+    this.taskbarservice.openApp(appName, appIcon);
   }
 
 
