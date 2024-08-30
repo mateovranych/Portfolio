@@ -13,7 +13,6 @@ interface App {
 export class TaskbarService {  
   apps: App[] = [];
 
-
   constructor() { }    
 
   openApp(appName: string, appIcon: string) {

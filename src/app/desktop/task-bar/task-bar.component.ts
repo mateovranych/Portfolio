@@ -1,12 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { TaskbarService } from '../../services/taskbar.service';
+import { MsnComponent } from "../../icons/msn/msn.component";
+import { PapeleraComponent } from "../../icons/papelera/papelera.component";
+import { AyudaComponent } from "../../icons/ayuda/ayuda.component";
+import { ProyectsComponent } from "../../icons/proyects/proyects.component";
+import { ProfileComponent } from "../../icons/profile/profile.component";
 
 
 @Component({
   selector: 'app-task-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MsnComponent, PapeleraComponent, AyudaComponent, ProyectsComponent, ProfileComponent],
   templateUrl: './task-bar.component.html',
   styleUrl: './task-bar.component.scss'
 })
@@ -45,5 +50,19 @@ export class TaskBarComponent implements OnInit {
     if (!target.closest('.start-button') && !target.closest('.start-menu')) {
       this.isMenuOpen = false;
     }
+  }
+
+  icons = [
+    { name: 'Profile', img: 'assets/agent.ico', x: 50, y: 50 },
+    { name: 'Proyectos', img: 'assets/Folder.ico', x: 50, y: 50 },
+    { name: 'Ayuda', img: 'assets/Help 3D.ico', x: 100, y: 50 },
+    { name: 'MSN', img: 'assets/MSN.ico', x: 150, y: 50 },
+    { name: 'Papelera de reciclaje', img: 'assets/Recycle Bin with paper.ico', x: 200, y: 50 }
+  ];
+
+  openApp(appName: string, appIcon: string) {
+    console.log('Abriendo aplicación:', appName);
+    console.log(`Abriendo aplicación: ${appName}`);
+    this.Taskbarservice.openApp(appName, appIcon);
   }
 }
