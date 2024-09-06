@@ -8,19 +8,19 @@
       <img src="assets/Folder.ico" alt="Proyectos">
       <span>Proyectos</span>
     </div>
-    <div class="icon" (click)="openApp('Ayuda','assets/Help 3D.ico')">
+    <!-- <div class="icon" (click)="openApp('Ayuda','assets/Help 3D.ico')">
       <img src="assets/Help 3D.ico" alt="Ayuda">
       <span>Ayuda</span>
-    </div>
+    </div> -->
     <div class="icon" (click)="openApp('MSN','assets/MSN.ico')">
       <img src="assets/MSN.ico" alt="MSN">
       <span>MSN</span>
     </div>
-    <div class="icon" (click)="openApp('Papelera','assets/Recycle Bin with paper.ico')">
+    <!-- <div class="icon" (click)="openApp('Papelera','assets/Recycle Bin with paper.ico')">
       <img src="assets/Recycle Bin with paper.ico" alt="Papelera">
       <span>Papelera de reciclaje</span>
     </div>
-  </div>  
+  </div>   -->
   <ng-container *ngFor="let app of taskbarservice.apps">
     <app-windows *ngIf="app.isOpen" [appName]="app.name">
       <div *ngIf="app.name === 'Profile'">
@@ -29,15 +29,15 @@
       <div *ngIf="app.name === 'Proyectos'">
         <app-proyects></app-proyects>
       </div>
-      <div *ngIf="app.name === 'Ayuda'">
+      <!-- <div *ngIf="app.name === 'Ayuda'">
         <app-ayuda></app-ayuda>
-      </div>
+      </div> -->
       <div *ngIf="app.name === 'MSN'">
         <app-msn></app-msn>
       </div>
-      <div *ngIf="app.name === 'Papelera'">
+      <!-- <div *ngIf="app.name === 'Papelera'">
         <app-papelera></app-papelera>
-      </div>
+      </div> -->
     </app-windows>
   </ng-container>
 
